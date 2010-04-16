@@ -20,6 +20,13 @@ if test -z "$WGET"; then
 fi
 AC_PATH_PROG([MD5SUM],[md5sum])
 if test -z "$MD5SUM"; then
+	AC_PATH_PROG([MD5SUM],[openssl])
+	if test -n "$MD5SUM"; then
+		MD5SUM="$MD5SUM md5"
+	fi
+fi
+
+if test -z "$MD5SUM"; then
    AC_MSG_ERROR(['md5sum is required to build this package])
 fi
 
