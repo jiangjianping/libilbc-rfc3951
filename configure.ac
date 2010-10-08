@@ -35,6 +35,13 @@ LT_INIT([disable-static])
 # Checks for libraries.
 AC_CHECK_LIB([m],[cosf])
 
+case $target_os in 
+	*mingw*)
+		mingw_found=yes
+		CFLAGS="$CFLAGS -fPIC"
+	;;
+esac
+
 # Checks for library functions.
 
 # Create the following files from their .in counterparts

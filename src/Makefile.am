@@ -30,4 +30,7 @@ nodist_ilbc_include_HEADERS = iLBC_decode.h iLBC_encode.h iLBC_define.h
 ilbc_includedir = $(includedir)/ilbc
 #libilbc_la_LDFLAGS = -lm
 
+
+libilbc_la_LDFLAGS= -no-undefined
+
 DISTCLEANFILES = $(BUILT_SOURCES)
