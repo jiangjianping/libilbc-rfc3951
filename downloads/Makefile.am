@@ -6,11 +6,6 @@ technical_spec_url = http://www.ietf.org/rfc/$(technical_spec)
 extract_script = extract-cfile.awk
 extract_script_url = http://www.ilbcfreeware.org/documentation/$(extract_script)
 
-# and for the license
-license = gips_iLBClicense.pdf
-license_url = http://www.ilbcfreeware.org/documentation/$(license)
-# license_url = http://gipscorp.com/files/english/$(license)
-
 downloaded_files = $(technical_spec) $(extract_script) $(license)
 checkmarks = $(downloaded_files:%=%.check)
 success_marker = ../src/iLBC_define.h
@@ -26,8 +21,6 @@ $(technical_spec):
 $(extract_script):
 	$(WGET) $(extract_script_url)
 
-$(license):
-	$(WGET) $(license_url)
 
 # for check, go to $(srcdir) or ./, depending on where file is
 $(checkmarks): %.check: %

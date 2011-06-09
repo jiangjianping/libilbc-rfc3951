@@ -1,4 +1,4 @@
-For the updated information please see http://www.ilbcfreeware.org.
+For the updated information please see http://www.webrtc.org/
 
 The upstream authors are:
 
@@ -12,27 +12,12 @@ The upstream authors are:
     J. Linden
     Global IP Sound
 
-    Global IP Solutions (GIPS) AB
-    Magnus Ladulåsgatan 63B
-    SE-118 27, Stockholm, Sweden
-    +46.8.545.5.30.40 tel
-    +46.8.545.5.30.49 fax
-    info@gipscorp.com
 
 The copyright of the downloaded IETF paper is held by:
 
     Copyright (C) 2004 The Internet Society
 
-Licensing information is available from:
-
-    Global IP Solutions (GIPS) AB
-    Magnus Ladulåsgatan 63B
-    SE-118 27, Stockholm, Sweden
-    +46.8.545.5.30.40 tel
-    +46.8.545.5.30.49 fax
-    info@gipscorp.com
-
-iLBC and Global IP Solutions are trademarks of Global IP Solutions.
+Global IP Solutions, the creator of iLBC, was acquired by Google in January 2011. Google continues to support the iLBC effort and is offering it as part of it's WebRTC open source effort. iLBC is now available under the same license as the WebRTC project. 
 
 The 'awk' script to extract the source code was written by Wenyu Jiang
 at Columbia University.
