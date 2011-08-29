@@ -4,7 +4,7 @@ technical_spec_url = http://www.ietf.org/rfc/$(technical_spec)
 
 # for the extract script
 extract_script = extract-cfile.awk
-extract_script_url = http://www.ilbcfreeware.org/documentation/$(extract_script)
+extract_script_url = http://www.webrtc.org/ilbc-freeware/ilbc-source-code-and-utili/ilbc-utilities/$(extract_script)
 
 downloaded_files = $(technical_spec) $(extract_script) $(license)
 checkmarks = $(downloaded_files:%=%.check)
@@ -29,7 +29,7 @@ $(checkmarks): %.check: %
 
 # cleaning up in ../src is necessary because the awk script appends
 $(success_marker): $(extract_script) $(technical_spec) $(checkmarks)
-	cd ../src; rm *.c *.h >& /dev/null; $(AWK) -f $(CURDIR)/$< \
+	cd ../src; rm *.c *.h &> /dev/null; $(AWK) -f $(CURDIR)/$< \
 		$(CURDIR)/$(word 2, $+) > /dev/null
 
 DISTCLEANFILES = $(BUILT_SOURCES)
