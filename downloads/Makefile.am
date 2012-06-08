@@ -16,10 +16,10 @@ checksum_files = $(addprefix $(checksum_dir)/, $(downloaded_files:%=%.md5))
 EXTRA_DIST = $(checksum_files)
 
 $(technical_spec):
-	$(WGET) $(technical_spec_url) -O ${technical_spec}
+	$(WGET) --no-check-certificate $(technical_spec_url) -O ${technical_spec}
 
 $(extract_script):
-	$(WGET) $(extract_script_url) -O ${extract_script}
+	$(WGET) --no-check-certificate $(extract_script_url) -O ${extract_script}
 
 
 # for check, go to $(srcdir) or ./, depending on where file is
