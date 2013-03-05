@@ -12,23 +12,19 @@ SET srcdir=..\..\..\..\src
 SET checksum_dir=%srcdir%\known_checksums
 
 REM define the tools
-SET wget=%curdir%\wget.exe
-SET awk=%curdir%\awk.exe
-
-@ECHO %technical_spec_url%
-@ECHO %extract_script_url%
-@ECHO %srcdir%
-@ECHO %checksum_dir%
-@ECHO %success_marker%
+SET wget=wget.exe
+SET awk=awk.exe
 
 REM clean previous files if they exist
-DEL /f %extract_script%
-DEL /f %technical_spec%
 DEL /f %srcdir%\*.c
 DEL /f %srcdir%\*.h
 
 REM get the sources
-%wget% %extract_script_url% -O %extract_script% --no-check-certificate
-%wget% %technical_spec_url% -O %technical_spec% --no-check-certificate
+IF NOT EXIST %extract_script% (
+	%wget% %extract_script_url% -O %extract_script% --no-check-certificate
+)
+IF NOT EXIST %technical_spec% (
+	%wget% %technical_spec_url% -O %technical_spec% --no-check-certificate
+)
 CD %srcdir%
 %awk% -f %curdir%\%extract_script% %curdir%\%technical_spec%
