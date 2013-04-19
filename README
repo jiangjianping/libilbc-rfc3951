@@ -24,3 +24,7 @@ with the standards for free software as established by the Debian
 Free Software Guidelines.
 
 iLBC and Global IP Solutions are trademarks of Global IP Solutions.
+
+
+
+To compile on Windows using Visual Studio you need to install wget and awk from the GnuWin32 project and put them in your path. You can download them from http://gnuwin32.sourceforge.net/
