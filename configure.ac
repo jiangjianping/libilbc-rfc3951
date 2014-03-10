@@ -4,9 +4,10 @@
 AC_INIT([libilbc-rfc3951],[0.7])
 AC_PREREQ(2.63)
 AC_CONFIG_SRCDIR([downloads/known_checksums/rfc3951.txt.md5])
-AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([tar-ustar --warnings=no-portability])
+
+AC_CONFIG_HEADERS(config.h)
 
 # Checks for programs.
 AC_PROG_AWK
