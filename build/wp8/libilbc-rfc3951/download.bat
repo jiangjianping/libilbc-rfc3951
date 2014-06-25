@@ -8,7 +8,7 @@ SET extract_script_url=http://www.webrtc.org/ilbc-freeware/ilbc-source-code-and-
 
 REM define the directories and files variables
 SET curdir=%CD%
-SET srcdir=..\..\..\..\src
+SET srcdir=..\..\..\src
 SET checksum_dir=%srcdir%\known_checksums
 
 REM define the tools
