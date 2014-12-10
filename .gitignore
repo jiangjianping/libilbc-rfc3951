@@ -16,7 +16,6 @@ build-aux
 config.status
 m4
 INSTALL
-downloads/extract-cfile.awk
 downloads/rfc3951.txt
 libilbc-rfc3951.spec
 pkgconfig/ilbc.pc
