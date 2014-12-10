@@ -21,7 +21,7 @@ $(checkmarks): %.check: %
 
 # cleaning up in ../src is necessary because the awk script appends
 $(success_marker): $(technical_spec) $(checkmarks)
-	cd ../src; rm *.c *.h &> /dev/null; $(AWK) -f $(CURDIR)/$< \
-		$(CURDIR)/$(word 2, $+) > /dev/null
+	cd ../src; rm *.c *.h &> /dev/null; $(AWK) -f $(CURDIR)/extract-cfile.awk \
+		$(CURDIR)/$< > /dev/null
 
 DISTCLEANFILES = $(BUILT_SOURCES)
