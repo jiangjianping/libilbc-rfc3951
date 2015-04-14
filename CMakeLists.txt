@@ -24,6 +24,9 @@ cmake_minimum_required(VERSION 3.0)
 project(ILBCRFC3951 C)
 
 
+option(ENABLE_STATIC "Build static library (default is shared library)." OFF)
+
+
 find_program(AWK_PROGRAM awk)
 if(NOT AWK_PROGRAM)
 	message(FATAL_ERROR "You need the awk program to build libilbcrfc3951.")
@@ -92,8 +95,20 @@ include_directories(
 )
 
 
-add_library(ilbcrfc3951 STATIC ${EXTRACTED_SOURCES})
-target_link_libraries(ilbcrfc3951)
+if(ENABLE_STATIC)
+	add_library(ilbcrfc3951 STATIC ${EXTRACTED_SOURCES})
+else()
+	add_library(ilbcrfc3951 SHARED ${EXTRACTED_SOURCES})
+	set_target_properties(ilbcrfc3951 PROPERTIES VERSION 0)
+	if(MSVC)
+		if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+			install(FILES ${CMAKE_CURRENT_BINARY_DIR}/Debug/ilbcrfc3951.pdb
+				DESTINATION bin
+				PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+			)
+		endif()
+	endif()
+endif()
 
 install(TARGETS ilbcrfc3951 EXPORT IlbcRfc3951Targets
 	RUNTIME DESTINATION bin
