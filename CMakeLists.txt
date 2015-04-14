@@ -84,6 +84,11 @@ set(EXTRACTED_SOURCES
 )
 set_source_files_properties(${EXTRACTED_SOURCES} PROPERTIES GENERATED TRUE)
 
+set(SOURCE_FILES ${EXTRACTED_SOURCES})
+if(MSVC)
+	list(APPEND SOURCE_FILES src/ilbcrfc3951.def)
+endif()
+
 add_custom_command(OUTPUT ${EXTRACTED_SOURCES}
 	COMMAND ${AWK_PROGRAM} -f ${CMAKE_CURRENT_SOURCE_DIR}/downloads/extract-cfile.awk ${CMAKE_CURRENT_SOURCE_DIR}/downloads/rfc3951.txt
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
@@ -96,9 +101,9 @@ include_directories(
 
 
 if(ENABLE_STATIC)
-	add_library(ilbcrfc3951 STATIC ${EXTRACTED_SOURCES})
+	add_library(ilbcrfc3951 STATIC ${SOURCE_FILES})
 else()
-	add_library(ilbcrfc3951 SHARED ${EXTRACTED_SOURCES})
+	add_library(ilbcrfc3951 SHARED ${SOURCE_FILES})
 	set_target_properties(ilbcrfc3951 PROPERTIES VERSION 0)
 	if(MSVC)
 		if(CMAKE_BUILD_TYPE STREQUAL "Debug")
