@@ -102,6 +102,9 @@ include_directories(
 
 if(ENABLE_STATIC)
 	add_library(ilbcrfc3951 STATIC ${SOURCE_FILES})
+	if(UNIX AND NOT APPLE)
+		target_compile_options(ilbcrfc3951 PRIVATE "-fPIC")
+	endif()
 else()
 	add_library(ilbcrfc3951 SHARED ${SOURCE_FILES})
 	set_target_properties(ilbcrfc3951 PROPERTIES VERSION 0)
