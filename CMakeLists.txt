@@ -118,6 +118,8 @@ else()
 	endif()
 endif()
 
+target_compile_options(ilbcrfc3951 PRIVATE "-Wno-unsequenced")
+
 install(TARGETS ilbcrfc3951 EXPORT IlbcRfc3951Targets
 	RUNTIME DESTINATION bin
 	LIBRARY DESTINATION lib
