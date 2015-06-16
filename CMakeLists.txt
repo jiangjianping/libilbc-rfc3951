@@ -118,7 +118,9 @@ else()
 	endif()
 endif()
 
-target_compile_options(ilbcrfc3951 PRIVATE "-Wno-unsequenced")
+if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+	target_compile_options(ilbcrfc3951 PRIVATE "-Wno-unsequenced")
+endif()
 
 install(TARGETS ilbcrfc3951 EXPORT IlbcRfc3951Targets
 	RUNTIME DESTINATION bin
