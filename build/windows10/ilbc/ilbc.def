@@ -1,0 +1,7 @@
+LIBRARY ilbc
+EXPORTS
+
+iLBC_decode
+iLBC_encode
+initDecode
+initEncode
