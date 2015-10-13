@@ -149,7 +149,6 @@ write_basic_package_version_file(
 )
 export(EXPORT IlbcRfc3951Targets
 	FILE "${CMAKE_CURRENT_BINARY_DIR}/IlbcRfc3951Targets.cmake"
-	NAMESPACE BelledonneCommunications::
 )
 configure_file(IlbcRfc3951Config.cmake
 	"${CMAKE_CURRENT_BINARY_DIR}/IlbcRfc3951Config.cmake"
@@ -159,7 +158,6 @@ configure_file(IlbcRfc3951Config.cmake
 set(ConfigPackageLocation lib/cmake/IlbcRfc3951)
 install(EXPORT IlbcRfc3951Targets
 	FILE IlbcRfc3951Targets.cmake
-	NAMESPACE BelledonneCommunications::
 	DESTINATION ${ConfigPackageLocation}
 )
 install(FILES
